@@ -3,6 +3,7 @@
 #include <algorithm>
 using namespace std;
 
+//for_each不仅能对容器进行遍历，也能够对C语言中的数组进行遍历
 class Print0
 {
 public:
