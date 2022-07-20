@@ -34,7 +34,7 @@ int partion(int arr[], int left, int right)
         arr[left] = arr[right];                 //将从右往左第一个比中枢值（pivot）小的元素放在前面中枢值腾出的位置中arr[left]，此时arr[right]这个位置空着给后面从左往右找到的元素腾出了位置
         while (arr[left] < pivot && left < right) //再从左往右找比中枢值大于等于的元素
             left++;
-        arr[right] = arr[left]; //将从左往右找到的元素放在前面从右往左进行时腾出的位置arr[right]中，同时为下一次，从右往左找到的元素怒腾出了位置arr[left]
+        arr[right] = arr[left]; //将从左往右找到的元素放在前面从右往左进行时腾出的位置arr[right]中，同时为下一次从右往左找到的元素腾出了位置arr[left]
     }
     arr[right] = pivot; //(最外层的while结束时，此时left和right指向同一位置，此位置空着，将最开始的中枢值元素怒pivit放在此位置，值相同arr[left]=pivot也可
     return left;      // return right也可
