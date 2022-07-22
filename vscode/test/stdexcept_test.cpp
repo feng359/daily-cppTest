@@ -16,12 +16,12 @@ int main()
       //try抛出异常后，catch捕捉异常，从第一个catch一直找到对应的抛出的异常类型，执行里面的代码。
       //if (a>b) throw "比较错误";
 
-    /*  if(a>b){
-        throw runtime_error("比较错误");  runtime_error构造函数的参数类型只能是const char *
+     if(a>b){
+        throw runtime_error("比较错误"); // runtime_error构造函数的参数类型只能是const char *
       }
-      */
      
-     if(a>b) throw 9;
+     
+     //if(a>b) throw 9;
     }
     catch(const char*  e){    //catch中参数类型应和throw抛出类型一致
         //perror(e)；
