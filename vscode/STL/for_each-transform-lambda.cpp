@@ -4,6 +4,8 @@
 using namespace std;
 
 //for_each不仅能对容器进行遍历，也能够对C语言中的数组进行遍历
+
+//仿函数 也称 函数对象 ;实质就是重载了括号()的类或结构体，调用时 类名() 方式嗲调用。
 class Print0
 {
 public:
