@@ -12,21 +12,24 @@ int callBack(int val)
     return ++val;
 }
 
-void print(int (*callFunc)(int), int val)
-{ //用一个函数指针占位参数，表示回调函数的入口地址。
 
-    cout << "test print val = " << val << endl;
-    cout << "callFunc val = " << callFunc(val) << endl; //进入print函数体调用时和一般调用用法相同。调用回调函数就是调用函数指针。
+//参照创建线程函数pthread_create()的第三和第四个参数类似于下面第一第二个参数。
+void print(int (*callFunc)(int), void *val) //此处采用void *val ，void *通用指针，可转变为任何一类指针，方便不同类型的参数传入。
+{ //用一个函数指针占位参数，表示回调函数的入口地址。
+    int *valu = (int *)val;  //将通用指针转变为int *型指针
+    cout << "test print val = " << *valu << endl;
+    cout << "callFunc val = " << callFunc(*valu) << endl; //进入print函数体调用时和一般调用用法相同。调用回调函数就是调用函数指针。
 }
 
 int main(int argc, char *argv[])
 {
-
-    print(callBack, 3); //注意：此处调用不可写括号和参数，直接写函数名入口地址，进入print函数体调用时才能和一般括号调用使用。
+    int val = 3;
+    print(callBack, &val); //注意：此处调用不可写括号和参数，直接写函数名入口地址，进入print函数体调用时才能和一般括号调用使用。
 
     system("pause");
     return 0;
 }
+
 
 /* test print val = 3
 callFunc val = 4 */
